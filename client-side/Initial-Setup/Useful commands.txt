@@ -1,0 +1,15 @@
+=>to compile both opencv & mysql using g++
+-------------------------------------------
+g++ -ggdb `pkg-config --cflags opencv` -o `basename calculateAndUpdate.cpp .cpp` calculateAndUpdate.cpp `pkg-config --libs opencv` -l mysqlcppconn
+
+=> to compile opencv using g++
+------------------------------
+g++ -ggdb `pkg-config --cflags opencv` -o `basename calculateAndUpdate.cpp .cpp` calculateAndUpdate.cpp `pkg-config --libs opencv`
+
+=> to compile mysql using g++
+------------------------------
+g++ db.cpp -l mysqlcppconn
+
+=> to compile gsl using g++
+----------------------------
+g++ test.c  -L/home/abhi/gsl/lib -I/home/abhi/gsl/include -lgsl -lgslcblas -lm
