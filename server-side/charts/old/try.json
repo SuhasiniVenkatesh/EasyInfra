@@ -1,0 +1,11 @@
+{
+  "cols":[
+    {"label":"Date","type":"datetime"},
+    {"label":"Traffic Density","type":"number"}
+  ],
+  "rows":[
+    ["Date(2015,01,07,10,00,00,00)",20.35],
+    ["Date(2015,01,07,10,00,00,00)",20.35]
+
+  ]
+}

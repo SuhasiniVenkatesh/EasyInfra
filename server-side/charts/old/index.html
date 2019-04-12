@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>working</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(drawTrendlines);
+
+function drawTrendlines() {
+    var data = new google.visualization.DataTable();
+    //data.addColumn('timeofday', 'X');
+    data.addColumn('datetime','X');
+    data.addColumn('number', 'Traffic Density');
+
+    data.addRows([[new Date(2016,0,28,0,5,28),30],
+                  [new Date(2016,0,28,0,10,28),40],
+                  [new Date(2016,0,28,0,11,28),50],
+                  [new Date(2016,0,28,0,12,28),10],
+                  [new Date(2016,0,28,0,13,28),25],
+                  [new Date(2016,0,28,0,14,28),19.00],
+                  [new Date(2016,0,28,0,15,28),2.8],
+                  [new Date(2016,0,28,0,16,28),52],
+                  [new Date(2016,0,28,0,17,28),1],
+                  [new Date(2016,0,28,0,18,28),30],
+                  [new Date(2016,0,28,0,19,28),null],
+                  [new Date(2016,0,28,0,20,28),null],
+                  [new Date(2016,0,28,0,21,28),null],
+                  [new Date(2016,0,28,0,22,28),null],
+                  [new Date(2016,0,28,0,23,28),null],
+                  [new Date(2016,0,28,0,24,28),null],
+                  [new Date(2016,0,28,0,25,28),null],
+                  [new Date(2016,0,28,0,26,28),null],
+                  [new Date(2016,0,28,0,27,28),null],]);
+
+
+    var options = {
+      'width':1200,
+      'height':640,
+      hAxis: {
+        title: 'Time'
+      },
+      vAxis: {
+        title: 'Traffic Density'
+      },
+      colors: ['#AB0D06', '#007329'],
+      interpolateNulls:true,
+      trendlines: {
+        //0: {type: 'exponential', color: '#333', opacity: 1},
+        //1: {type: 'linear', color: '#111', opacity: .3}
+        0: {type: 'polynomial', degree: 3, showR2: true, visibleInLegend:true}
+      }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+
+    var scatterChart = new google.visualization.ScatterChart(document.getElementById('scatter-div'));
+    scatterChart.draw(data, options);
+
+  }
+    </script>
+    <div id="chart_div"></div>
+    <div id="scatter-div"></div>
+    <div id="timeline-div"></div>
+  </body>
+</html>
