@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#usage: ./moveCoeff.sh [source folder] [dest folder]
+cd $1
+ls *-coEff.txt > temp.txt
+
+while IFS='' read -r line || [[ -n "$line" ]]; 
+do
+   	mv $line $2
+	 
+done < "temp.txt"
